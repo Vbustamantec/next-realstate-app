@@ -18,11 +18,11 @@ const Property = ({
     area,
     agency,
     isVerified,
-    externalId,
+    externalID,
   },
 }) => {
   return (
-    <Link href={`/property/${externalId}`} passHref>
+    <Link href={`/property/${externalID}`} passHref>
       <Flex
         flexWrap="wrap"
         w="420px"
@@ -64,7 +64,13 @@ const Property = ({
             justifyContent="space-between"
             w="250px"
             color="blue.400"
-          ></Flex>
+          >
+            {rooms} <FaBed /> | {baths}
+            <FaBath /> | {millify(area)} sqft <BsGridFill />
+          </Flex>
+          <Text fontSize="lg">
+            {title.length > 30 ? `${title.substring(0, 30)}...` : title}
+          </Text>
         </Box>
       </Flex>
     </Link>
